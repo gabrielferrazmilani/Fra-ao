@@ -26,104 +26,104 @@ class Fração:
     
         
      # Retorna a soma de dois elementos da classe
-    def __add__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __add__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        xnum = self.num * f2.den + self.den * f2.num
-        xden = self.den * f2.den
+        xnum = f1.num * f2.den + f1.den * f2.num
+        xden = f1.den * f2.den
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
          
      # Retorna a diferença de dois elementos da classe      
-    def __sub__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __sub__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        xnum = self.num * f2.den - self.den * f2.num
-        xden = self.den * f2.den
+        xnum = f1.num * f2.den - f1.den * f2.num
+        xden = f1.den * f2.den
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
         
      # Retorna o produto de dois elementos da classe   
-    def  __mul__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def  __mul__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        xnum = self.num * f2.num
-        xden = self.den * f2.den
+        xnum = f1.num * f2.num
+        xden = f1.den * f2.den
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
         
      # Retorna o quociente de dois elementos da classe   
-    def  __truediv__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def  __truediv__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        xnum = self.num * f2.den
-        xden = self.den * f2.num
+        xnum = f1.num * f2.den
+        xden = f1.den * f2.num
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
         
     # Retorna a potencia de um elemento da classe    
-    def  __pow__(self, pot):
-        if type(self) != Fração:
+    def  __pow__(f1, pot):
+        if type(f1) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
         if type(pot) != int:
             raise ValueError('A potencia precisa ser um numero inteiro')
-        xnum = self.num**pot
-        xden = self.den**pot
+        xnum = f1.num**pot
+        xden = f1.den**pot
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
         
      # Retorna a igualdade de dois elementos da classe
-    def __eq__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __eq__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1=self.num * f2.den
-        x2=f2.num * self.num
+        x1=f1.num * f2.den
+        x2=f2.num * f1.num
        
         return x1==x2
    
-    def  __ne__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def  __ne__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1 = self.num * f2.den
-        x2 = f2.num * self.den
+        x1 = f1.num * f2.den
+        x2 = f2.num * f1.den
         
         return x1!=x2
     
-    def __lt__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __lt__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1 = self.num * f2.den
-        x2 = f2.num * self.den
+        x1 = f1.num * f2.den
+        x2 = f2.num * f1.den
         
         return x1 < x2
     
 
-    def __le__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __le__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1 = self.num * f2.den
-        x2 = f2.num * self.den
+        x1 = f1.num * f2.den
+        x2 = f2.num * f1.den
         
         return x1 <= x2
     
-    def __gt__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __gt__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1 = self.num * f2.den
-        x2 = f2.num * self.den
+        x1 = f1.num * f2.den
+        x2 = f2.num * f1.den
         
         return x1 > x2
     
-    def __ge__(self, f2):
-        if type(self) != Fração or type(f2) != Fração:
+    def __ge__(f1, f2):
+        if type(f1) != Fração or type(f2) != Fração:
             raise TypeError('O parametro nao é do tipo fração')
-        x1 = self.num * f2.den
-        x2 = f2.num * self.den
+        x1 = f1.num * f2.den
+        x2 = f2.num * f1.den
         
         return x1 >= x2
 
