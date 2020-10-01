@@ -71,8 +71,14 @@ class Fração:
             raise TypeError('O parametro nao é do tipo fração')
         if type(pot) != int:
             raise ValueError('A potencia precisa ser um numero inteiro')
-        xnum = f1.num**pot
-        xden = f1.den**pot
+        if pot < 0 :
+            xnum = f1.den**(-pot)
+            xden = f1.num**(-pot)
+            if xden == 0:
+                raise ValueError('O denominador não pode ser zero')
+        else:            
+            xnum = f1.num**pot
+            xden = f1.den**pot
         xmdc = Fração.mdc(xnum, xden)
         
         return  Fração(xnum // xmdc, xden // xmdc)
@@ -149,7 +155,7 @@ if __name__ == '__main__':
     print(z)
     z = x / y
     print(z)
-    z = x**2
+    z = z**2
     print(z)
     print(x==y)
     print(x!=y)
@@ -157,3 +163,7 @@ if __name__ == '__main__':
     print(x<=y)
     print(x>y)
     print(x>=y)
+    z = x**-2
+    print(z)
+    
+  
